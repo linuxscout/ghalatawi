@@ -4,7 +4,7 @@ Ghalatawi غلطاوي
 Ghalatawi: Arabic Autocorrect library مكتبة للتصحيح التلقائي للغة
 العربية
 
-.. figure:: doc/ghalatawi_header.png
+.. figure:: ystatic/ghalatawi_header.png
    :alt: ghalatawi logo
 
    ghalatawi logo
