@@ -29,6 +29,8 @@ version = ''
 release = '0.3'
 
 
+latex_engine = "xelatex"
+
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
