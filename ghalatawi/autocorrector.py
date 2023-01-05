@@ -193,20 +193,20 @@ class AutoCorrector:
         self.replace_list = auto_list
         return auto_list;
 
-    def ajust_pounct(self, text):
+    def adjust_pounct(self, text):
         """
-        ajust pountuation in text.
+        adjust pountuation in text.
         
         Example:
             >>> from ghalatawi.autocorrector import AutoCorrector
             >>> autoco = AutoCorrector()
             >>> text = "قال : للصائم فرحتان : فرحة حين يفطر ، وفرحة حين يلقى ربه  ."
-            >>> autoco.ajust_pounct(text)
+            >>> autoco.adjust_pounct(text)
     'قال: للصائم فرحتان: فرحة حين يفطر، وفرحة حين يلقى ربه.'
         
         @param text: the input text.
         @type text: unicode.
-        @return: ajusted text.
+        @return: adjusted text.
         @rtype: unicode.
         """
         # autocorrect words without diacritics 
@@ -216,21 +216,21 @@ class AutoCorrector:
             text = rule[0].sub(rule[1],text);
             # if the result changes, return True;
         return text;
-    def ajust_typo(self, text):
+    def adjust_typo(self, text):
         """
-        ajust typo errors in text.
+        adjust typo errors in text.
         
         Example:
             >>> from ghalatawi.autocorrector import AutoCorrector
             >>> autoco = AutoCorrector()        
             >>> text = "اشتريت الخبز و الحليب و الخضر و قليلا من الفاكهة."
-            >>> autoco.ajust_typo(text)
+            >>> autoco.adjust_typo(text)
     'اشتريت الخبز والحليب والخضر وقليلا من الفاكهة.'
 
         
         @param text: the input text.
         @type text: unicode.
-        @return: ajusted text.
+        @return: adjusted text.
         @rtype: unicode.
         """
         # remove redendent more than 2 times
@@ -246,7 +246,7 @@ class AutoCorrector:
     def spell(self, text):
         """
         Auto correct text.
-        ajust typo errors in text.
+        adjust typo errors in text.
         
         Example:
             >>> from ghalatawi.autocorrector import AutoCorrector()
@@ -291,9 +291,9 @@ class AutoCorrector:
             tokens = tmp_tokens
         new_text = " ".join(tokens)
         if self.config.get("punct",False):
-            new_text = self.ajust_pounct(new_text)
+            new_text = self.adjust_pounct(new_text)
         if self.config.get("typo",False):
-            new_text = self.ajust_typo(new_text)
+            new_text = self.adjust_typo(new_text)
         
         return new_text
 
@@ -306,6 +306,12 @@ class AutoCorrector:
         """
         for name in self.config:
             self.config[name] = True
+    def unallow_all(self):
+        """
+        Disable all methods for autocorrector, in spell() method
+        """
+        for name in self.config:
+            self.config[name] = False            
     def set_allow(self, name):
         """
         Enable using 'name' method for autocorrector, in spell() method
@@ -326,9 +332,8 @@ class AutoCorrector:
     
     def show_config(self):
         """
-        Diasble using 'name' method for autocorrector, in spell() method
+        Show methods used for autocorrector, in spell() method
         """
-        if name in self.config:
-            self.config[name] = False
+        return self.config
    
 

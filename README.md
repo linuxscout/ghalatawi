@@ -11,7 +11,7 @@ Ghalatawi: Arabic Autocorrect library
   Developpers:  Taha Zerrouki: http://tahadz.com
     taha dot zerrouki at gmail dot com
 
-  
+
 Features |   value
 ---------|---------------------------------------------------------------------------------
 Authors  | [Authors.md](https://github.com/linuxscout/ghalatawi/main/AUTHORS.md)
@@ -21,36 +21,6 @@ Tracker  |[linuxscout/ghalatawi/Issues](https://github.com/linuxscout/ghalatawi/
 Source  |[Github](http://github.com/linuxscout/ghalatawi)
 Feedbacks  |[Comments](https://github.com/linuxscout/ghalatawi/)
 Accounts  |[@Twitter](https://twitter.com/linuxscout))
-
-
-## Citation
-If you would cite it in academic work, can you use this citation
-```
-Zerrouki, Taha, Khaled Alhawiti, and Amar Balla. "Autocorrection of arabic common errors for large text corpus." Proceedings of the EMNLP 2014 workshop on arabic natural language processing (ANLP). 2014.‏
-```
-```
-Zaghouani, Wajdi, Taha Zerrouki, and Amar Balla. "SAHSOH@ QALB-2015 Shared Task: A rule-based correction method of common Arabic native and non-native speakers’ errors." Proceedings of the Second Workshop on Arabic Natural Language Processing. 2015.‏
-```
-or in bibtex format
-
-```bibtex
-@inproceedings{zerrouki2014autocorrection,
-  title={Autocorrection of arabic common errors for large text corpus},
-  author={Zerrouki, Taha and Alhawiti, Khaled and Balla, Amar},
-  booktitle={Proceedings of the EMNLP 2014 workshop on arabic natural language processing (ANLP)},
-  pages={127--131},
-  year={2014}
-}
-
-@inproceedings{zaghouani2015sahsoh,
-  title={SAHSOH@ QALB-2015 Shared Task: A rule-based correction method of common Arabic native and non-native speakers’ errors},
-  author={Zaghouani, Wajdi and Zerrouki, Taha and Balla, Amar},
-  booktitle={Proceedings of the Second Workshop on Arabic Natural Language Processing},
-  pages={155--160},
-  year={2015}
-}
-
-```
 
 ## Description
 
@@ -64,8 +34,6 @@ AutoCorrect (Text replacement, Replace as you type) is a software function commo
 The common errors in Arabic, are confusion between Alef forms ( Alef with Hamza, Alef without Hamza), missig the Yeh dots, and missing the Teh-Marbuta dots.
 
 This Project aims to construct a word list and a list of regular expressions for Arabic auto-correction. 
-
-
 
 ###  مزايا:
 
@@ -89,14 +57,6 @@ This Project aims to construct a word list and a list of regular expressions for
 - Corpora Autocorrection.
 
 
-# الإصدارات
-
-- قائمة الكلمات للتصحيح التلقائي، بصيغة OpenOffice.org
-- قائمة الكلمات صيغة نصية ملف مضغوط
-- قائمة الكلمات صيغة بيانات SQL
-- برنامج غلطاوي، لتصحيح الكلمات بواسطة التعابير المنتظمة، وقائمة الكلمات متن بايثون
-
-
 ### Usage
 
 ### install
@@ -110,10 +70,119 @@ pyarabic>=0.6.8
 
 #### import
 ```python
->>> import ghalatawi.autocorrect
+>>> from ghalatawi.autocorrector import AutoCorrector
 ```
 ## Examples
 
 Detailed examples and features in [Features](doc/features.md) 
 
+* Autocorrect a text
+
+```python
+from ghalatawi.autocorrector import AutoCorrector
+autoco = AutoCorrector()
+text = 'اذا أردت إستعارة كتاب ، اذهب الى المكتبه او الادارة فى الضهيرة .'
+autoco.spell(text)
+```
+
+output 
+
+````python
+'إذا أردت استعارة كتاب، اذهب إلى المكتبة أو الادارة في الظهيرة.'
+````
+
+
+
+* Show methods used in spelling
+
+```python
+from ghalatawi.autocorrector import AutoCorrector
+autoco = AutoCorrector()
+autoco.show_config()
+```
+
+```python
+{'regex': True, 'wordlist': True, 'punct': True, 'typo': True}
+```
+
+* Allow/disallow methods used in spelling
+
+```python
+from ghalatawi.autocorrector import AutoCorrector
+autoco = AutoCorrector()
+# remove regex method from spelling
+autoco.unset_allow("regex") 
+text = 'اذا أردت إستعارة كتاب ، اذهب الى المكتبه او الادارة فى الضهيرة .'
+# The word إستعارة will no be corrected
+expected_text = 'إذا أردت إستعارة كتاب، اذهب إلى المكتبة أو الادارة في الظهيرة.'
+result_text = autoco.spell(text)
+bool(result_text == expected_text)
+# Allow regex 
+autoco.set_allow("regex") 
+expected_text = 'إذا أردت استعارة كتاب، اذهب إلى المكتبة أو الادارة في الظهيرة.'
+result_text = autoco.spell(text)
+bool(result_text == expected_text)
+```
+
+```python
+True
+True
+```
+
+* Adjust punctuations in text
+
+  ```python
+  >>> from ghalatawi.autocorrector import AutoCorrector
+  >>> autoco = AutoCorrector()
+  >>> text = "قال : للصائم فرحتان : فرحة حين يفطر ، وفرحة حين يلقى ربه  ."
+  >>> autoco.adjust_pounct(text)
+  'قال: للصائم فرحتان: فرحة حين يفطر، وفرحة حين يلقى ربه.'
+  ```
+
+  
+
+* Adjust typos in text
+
+  ```python
+  >>> from ghalatawi.autocorrector import AutoCorrector
+  >>> autoco = AutoCorrector()        
+  >>> text = "اشتريت الخبز و الحليب و الخضر و قليلا من الفاكهة."
+  >>> autoco.adjust_typo(text)
+      'اشتريت الخبز والحليب والخضر وقليلا من الفاكهة.'
+  ```
+
+  
+
+* Autocorrect a word by regex
+
+  ```
+  ```
+
+  
+
+* Autocorrect a word by autucorrection word list; with defalut
+
+  
+
+  ```python
+  >>> from ghalatawi.autocorrector import AutoCorrector
+  >>> autoco = AutoCorrector()                    
+  >>> word=u"اذا"
+  >>> # default word list
+  >>> autoco.autocorrect_by_wordlist(word)
+  إذا
+  ```
+
+* 
+
+* Load a specific wordlist Autocorrect a word by autucorrection word list
+
+```python
+>>> from ghalatawi.autocorrector import AutoCorrector
+>>> autoco = AutoCorrector()                    
+>>> autocorrectlist = autoco.load_wordlist("data/arabic.acl")
+>>> word=u"اذا"
+>>> autoco.autocorrect_by_wordlist(word, autocorrectlist)
+إذا
+```
 

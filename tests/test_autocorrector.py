@@ -60,27 +60,27 @@ class ghalatawiTestCase(unittest.TestCase):
         self.assertEqual(self.autoco.autocorrect_by_wordlist(word, autocorrectlist), "إذا")
         self.assertEqual(self.autoco.autocorrect_by_wordlist(word), "إذا")
         
-    def test_ajust_pounct(self):
+    def test_adjust_pounct(self):
         """
-        Test ajust pounctuation
+        Test adjust pounctuation
         """
 
         text = "قال : للصائم فرحتان : فرحة حين يفطر ، وفرحة حين يلقى ربه  ."
         correct_text = 'قال: للصائم فرحتان: فرحة حين يفطر، وفرحة حين يلقى ربه.'
-        self.assertEqual(self.autoco.ajust_pounct(text), correct_text)
+        self.assertEqual(self.autoco.adjust_pounct(text), correct_text)
         
-    def test_ajust_typo(self):
+    def test_adjust_typo(self):
         """
-        Test ajust typo
+        Test adjust typo
         """
 
         text = "اشتريت الخبز و الحليب و الخضر و قليلا من الفاكهة."
         correct_text = "اشتريت الخبز والحليب والخضر وقليلا من الفاكهة."
-        self.assertEqual(self.autoco.ajust_typo(text), correct_text)
+        self.assertEqual(self.autoco.adjust_typo(text), correct_text)
         
     def test_spell(self):
         """
-        Test ajust typo
+        Test adjust typo
         """
 
         text           = "اذا أردت  إستعارة كتاب ، اذهب  الى المكتبه  او الادارة فى الضهيرة."
@@ -91,7 +91,7 @@ class ghalatawiTestCase(unittest.TestCase):
         
     def test_spell_options(self):
         """
-        Test ajust typo
+        Test adjust typo
         """
 
         text = "اذا أردت  إستعارة كتاب ، اذهب  الى المكتبه  او الادارة فى الضهيرة."
