@@ -155,12 +155,38 @@ True
 
 * Autocorrect a word by regex
 
+  ```python
+  >>> from ghalatawi.autocorrector import AutoCorrector
+  >>> autoco = AutoCorrector()            
+  >>> word=u"الإجتماعية"
+  >>> autoco.autocorrect_by_regex(word)
+  الاجتماعية
   ```
+
+* Autocorrect a word by autucorrection word list; with given word list
+
+  ```python
+  >>> from ghalatawi.autocorrector import AutoCorrector
+  >>> autoco = AutoCorrector()            
+  >>> autocorrectlist={
+  ...                 u'اذا':u'إذا',
+  ...                 u'او':u'أو',
+  ...                 u'فى':u'في',
+  ...                 u'هى':u'هي',
+  ...                 u'انت':u'أنت',
+  ...                 u'انتما':u'أنتما',
+  ...                 u'الى':u'إلى',
+  ...                 u'التى':u'التي',
+  ...                 u'الذى':u'الذي',
+  ...                 }
+  >>> word=u"اذا"
+  >>> autoco.autocorrect_by_wordlist(word, autocorrectlist)
+  'إذا'
   ```
 
   
 
-* Autocorrect a word by autucorrection word list; with defalut
+* Autocorrect a word by autucorrection word list; with default word list
 
   
 
@@ -172,8 +198,6 @@ True
   >>> autoco.autocorrect_by_wordlist(word)
   إذا
   ```
-
-* 
 
 * Load a specific wordlist Autocorrect a word by autucorrection word list
 

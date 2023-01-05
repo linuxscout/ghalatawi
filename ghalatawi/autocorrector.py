@@ -34,7 +34,7 @@ import re
 import os 
 import pyarabic.araby as araby
 from . import ghalat_const as ghconst
-WORDLIST_FILENAME = "../data/arabic0.2.acl"
+WORDLIST_FILENAME = "data/arabic0.2.acl"
 
 class AutoCorrector:
     """
@@ -253,7 +253,7 @@ class AutoCorrector:
             >>> autoco = AutoCorrector()
             >>> text = 'اذا أردت إستعارة كتاب ، اذهب الى المكتبه او الادارة فى الضهيرة .'
             >>> autoco.spell(text)
-	'إذا أردت استعارة كتاب، اذهب إلى المكتبة أو الادارة في الظهيرة.'
+    'إذا أردت استعارة كتاب، اذهب إلى المكتبة أو الادارة في الظهيرة.'
 
         @param text: the input text.
         @type text: string.

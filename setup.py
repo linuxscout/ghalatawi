@@ -23,7 +23,7 @@ setup (name='ghalatawi', version='0.3',
             ],         
       include_package_data=True,
       package_data = {
-        'ghalatawi': ['doc/*.*','doc/html/*', 'data/*.sqlite', 'data/*.sql'],
+        'ghalatawi': ['doc/*.*','doc/html/*', 'data/*.acl', 'data/*.sql'],
         },
       classifiers=[
           'Development Status :: 5 - Production/Stable',
