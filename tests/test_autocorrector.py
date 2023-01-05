@@ -3,7 +3,7 @@
 import unittest
 import os.path
 import sys
-sys.path.append("../")
+# ~ sys.path.append("../")
 import ghalatawi.ar_ghalat as gh
 import ghalatawi.autocorrector 
 
