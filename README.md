@@ -19,6 +19,9 @@ Release  | 0.1
 License  |[GPL](https://github.com/linuxscout/ghalatawi/main/LICENSE)
 Tracker  |[linuxscout/ghalatawi/Issues](https://github.com/linuxscout/ghalatawi/issues)
 Source  |[Github](http://github.com/linuxscout/ghalatawi)
+Website  |[https://pypi.python.org/pypi/ghalatawi](https://pypi.python.org/pypi/ghala)
+Doc  |[package Documentaion](https://ghalatawi.readthedocs.io/)
+Download  |[pypi.python.org](https://pypi.python.org/pypi/ghalatawi)
 Feedbacks  |[Comments](https://github.com/linuxscout/ghalatawi/)
 Accounts  |[@Twitter](https://twitter.com/linuxscout))
 
