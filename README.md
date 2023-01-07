@@ -22,6 +22,7 @@ Source  |[Github](http://github.com/linuxscout/ghalatawi)
 Website  |[https://pypi.python.org/pypi/ghalatawi](https://pypi.python.org/pypi/ghala)
 Doc  |[package Documentaion](https://ghalatawi.readthedocs.io/)
 Download  |[pypi.python.org](https://pypi.python.org/pypi/ghalatawi)
+Download  | َAutocorrect Wordslist for [OpenOffice.org](http://sourceforge.net/projects/ghalatawi/files/acor_ar.dat/download)
 Feedbacks  |[Comments](https://github.com/linuxscout/ghalatawi/)
 Accounts  |[@Twitter](https://twitter.com/linuxscout))
 
@@ -38,9 +39,13 @@ The common errors in Arabic, are confusion between Alef forms ( Alef with Hamza,
 
 This Project aims to construct a word list and a list of regular expressions for Arabic auto-correction. 
 
-###  مزايا:
 
+## Releases: الإصدارات
 
+* قائمة الكلمات للتصحيح التلقائي، بصيغة  [OpenOffice.org](http://sourceforge.net/projects/ghalatawi/files/acor_ar.dat/download)
+* قائمة الكلمات صيغة نصية [ملف مضغوط](http://sourceforge.net/projects/ghalatawi/files/ghalatawi-arabicautocorrect0.1.zip/download)
+* قائمة الكلمات صيغة [بيانات SQL](http://sourceforge.net/projects/ghalatawi/files/arabicautocorrect.sql.zip/download)
+* مكتبة غلطاوي، لتصحيح الكلمات بواسطة التعابير المنتظمة، وقائمة الكلمات [متن بايثون](الرابط)
 
  
 
@@ -60,8 +65,31 @@ This Project aims to construct a word list and a list of regular expressions for
 - Corpora Autocorrection.
 
 
-### Usage
+## تثبيت قائمة التصحيح التلقائي في ليبر أوفيس:
 
+1.نزّل قائمة التصحيح التلقائي  بصيغة  [acor_ar.dat](http://sourceforge.net/projects/ghalatawi/files/acor_ar.dat/download)
+
+2. تحقق من مسار التصحيح التلقائي من القائمة ( أدوات/خيارات/ليبرأوفيس/مسارات/ تصحيح تلقائي)  للنسخة الإنجليزية  استعملMenu/Tools /Options/ LibreOffice/paths
+3.  اذهب إلى المجلد المذكور في المسار أعلاه: مثلا "~/.config/libreoffice/4/user/autocorr/"
+4. انسخ ملف acor_ar.dat، 
+5. يمكن تسميته حسب المحليات لديك، مثلا  'acor_ar-DZ.dat' للعربية -الجزائر أو  'acor_ar-EG.dat' للعربية(مصر).
+6. أعد تشغيل ليبرأوفيس، وجرب كتابة "اذا" دون همزة، ستصحح تلقائيا إلى "إذا".
+7. جرّب كتابة الجملة الآتية، (كتابتها بدلا من نسخها) "اذا رحت الى الادارة فى الضهيرة"
+8. ستحصل على " إذا  رحت إلى  الإدارة  في  الظهيرة "
+
+### Usage on LibreOffice:
+
+1. Download the Autocorrect List in LibreOffice format from  [acor_ar.dat](http://sourceforge.net/projects/ghalatawi/files/acor_ar.dat/download)
+
+2. Check paths for Autocorrection in Menu/Tools /Options/ LibreOffice/paths
+3. Go to the folder given in paths; it can be "~/.config/libreoffice/4/user/autocorr/
+4. Copy the acor_ar.dat on the given path.
+5. You can rename the file into your Arabic locale, like 'acor_ar-DZ.dat' or 'acor_ar-EG.dat'.
+6. Open LibreOffice and try to write "اذا" it will be automatically corrected to "إذا"
+7. Try typing (rather than copying) the following phrase:  اذا رحت الى الادارة فى الضهيرة
+8. You will get إذا  رحت إلى  الإدارة  في  الظهيرة  
+
+### Library Usage
 ### install
 ```shell
 pip install ghalatawi
