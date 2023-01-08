@@ -57,7 +57,7 @@ This Project aims to construct a word list and a list of regular expressions for
 - مساعدة الكاتب في برامج المراسلات، والترجمة، وغيرها.
 - تدقيق المدوّنات اللغوية (corpus).
 - تصحيح استعلامات البحث.
-- تصحيح الكتابة في الأجهزة المحمولة كالهوتاف الذكية.
+- تصحيح الكتابة في الأجهزة المحمولة كالهواتف الذكية.
 
 - AutoCorrect for word processors like OpenOffice/LibreOffice
 - Huge content site Autocorrection, like Wikipedia.
