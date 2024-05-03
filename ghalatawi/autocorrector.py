@@ -148,7 +148,7 @@ class AutoCorrector:
             return False
         #~print "word list", type(word_list)
         if word_nm in word_list:
-            return word_list[word];
+            return word_list[word_nm]
         else: 
             return False;
         return False;
